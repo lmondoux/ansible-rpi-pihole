@@ -19,18 +19,15 @@
     upgrade: safe
   tags: admin
 
-- name: Install admin tools (vim, htop, ntop, nmap)
+- name: Install admin tools (vim, htop, nmap)
   apt:
-    package: "{{ item }}"
-    state: installed
-  with_items:
-    - python-apt
-    - python-pip
-    - vim
-    - htop
-    - ntop
-    - nmap
-    - atop
+    package: ['python-apt',
+              'python-pip',
+              'vim',
+              'htop',
+              'nmap',
+              'atop']
+    state: latest
   tags: admin
 
 - name: Install grin (better grep)
